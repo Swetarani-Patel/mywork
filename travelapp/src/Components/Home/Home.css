@@ -1,4 +1,4 @@
-:root{
+/* :root{
     --PrimaryColor: hsl(199, 100%, 33%);
    --SecondaryColor: hsl(187, 85%, 43%);
    --gradientColor: linear-gradient(to right, hsl(187,85%, 43%), hsl(199, 100%, 33%)); 
@@ -13,7 +13,6 @@
     }
 
     .home{
-        /* border: 3px solid blueviolet; */
         width: 100%;
         position: relative;
         display: flex;
@@ -29,7 +28,7 @@
             top:0;
             bottom: 0;
             z-index: 1;
-            mix-blend-mode: hard-light;
+            mix-blend-mode:darken;
 
             
         }
@@ -68,5 +67,35 @@
                 font-size: 1.8rem;
             }
         }
-
     }
+    
+
+        .cardDiv{
+            position: relative;
+            padding: 2rem 1rem;
+            background: var(--whiteColor);
+            border-radius: 10px;
+            gap: 1rem;
+        }
+        label{
+            display: block;
+            color: var(--textColor);
+            padding-bottom: 10px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .label_total{
+            justify-content: space-between;
+            align-items: center;
+        
+        .total{
+            color: var(--textColor);
+            font-size: 18px;
+            padding-bottom: 10px;
+        }
+    }
+    
+        
+
+     */
