@@ -8,7 +8,7 @@ import img3 from '../../Assets/travelimg3.jpg'
 import img4 from '../../Assets/travelimg4.jpg'
 import img5 from '../../Assets/travelimg5.jpg'
 import img6 from '../../Assets/travelimg6.jpg'
-import { BsClipboardCheck } from 'react-icons/bs'
+import { HiOutlineClipboardCheck } from 'react-icons/hi'
 import {HiOutlineLocationMarker} from 'react-icons/hi'
 
 const data = [
@@ -71,52 +71,53 @@ const data = [
 
 export default function Main() {
   return (
-    <section className='main container section'>
-    <div className='secTitle'>
-    <h3 className='title'> Most visited destinations</h3>
-    </div>
-    <div className='secContent grid'>
-     {
-      data.map((ele)=>{
-        return(
-          <div key={ele.id} className='singleDestination'>
-          <div className='imageDiv'>
-          <img src={ele.imgsrc} alt={ele.destTitle}/>
+     <section className='main container section'>
+          <div className='secTitle'>
+           <h3 className='title'>
+              Most Visited destinations
+           </h3>
           </div>
 
-          <div className='cardInfo'>
-            <h4 className='destTitle'>{ele.destTitle} </h4>
-            <span className='continent flex'>
-              <HiOutlineLocationMarker className="icon"/> <span className='name'>{ele.location}</span>
-              </span>
 
-            <div className='fees flex'>
-            <div className='grade'>
-            <span>{ele.grade} <small>+1</small></span>
-            </div>
+          <div className='secContent grid'>
+              
+            {
+              data.map((elm)=>{
+                return(
+                  <div key={elm.id} className='singleDestination'>
+                          <div className='imageDiv'>
+                            <img src={elm.imgsrc} alt={elm.destTitle}/>
+                          </div>
+                          <div className='cardInfo'>
+                               <h4 className='destTitle'>{elm.destTitle}</h4>
+                               <span className='continent flex'>
+                                <HiOutlineLocationMarker className='icon'/>
+                                <span className='name'>{elm.location}</span>
+                               </span>
+                               
+                               <div className='fees flex'>
+                                 <div className='grade' >
+                                      <span> {elm.grade} <small>+1</small></span>
+                                 </div>
+                                 <div className='price'>
+                                   <h5>{elm.fees}</h5>
+                                 </div>
+                               </div>
+                               <div className='desc'>
+                                 <p>{elm.description}</p>
+                                 </div>
+                                <button className='btn flex'>
+                                  DETAILS  <HiOutlineClipboardCheck className='icon'/>
+                                </button>
 
-            <div className='price'>
-            <h5>{ele.fees}</h5>
-            </div>
+                          </div>
+                  </div>
+                )
+              })
+            }
 
-            </div>
-          
 
-          <div className='desc'>
-          <p>{ele.description}</p>
           </div>
-
-          <button className='btn flex'>
-           DETAILS<BsClipboardCheck className="icon"/>
-          </button>
-          </div>
-          </div>
-        )
-
-      })
-     }
-    </div>
-
-    </section>
+     </section>
   )
 }
