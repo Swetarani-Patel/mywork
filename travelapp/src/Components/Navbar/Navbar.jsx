@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import './Navbar.css'
+import './Navbar.scss'
 import { MdOutlineTravelExplore } from 'react-icons/md'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { PiDotsNineBold } from 'react-icons/pi'

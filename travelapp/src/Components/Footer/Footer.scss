@@ -73,41 +73,214 @@
                 }
                 .inputDiv{
                     width: 100%;
-                    gap:1rem;
+                    gap: 1rem;
                     flex-direction: column;
-
+        
                     input{
                         width: 100%;
                         padding: .5rem .6rem;
                         border-radius: 3rem;
                         border: 1px solid var(--whiteColor);
-                        outline: none;
                         background: transparent;
+                       outline: none;
+                       color: var(--whiteColor);
+        
+                       &::placeholder{
                         color: var(--whiteColor);
-
-                        &::placeholder{
-                            color: var(--whiteColor);
-                            opacity: .5;
-                        }
-            
+                        opacity: .5;
+                       }
                     }
-
-                    .btn{
-                        width: 100%;
-                        justify-content: center;
+                  }
+                  .btn{
+                    width: 100%;
+                    justify-content: center;
+                    color: var(--whiteColor);
+                    gap: .5rem;
+                    font-weight: 500;
+                    .icon{
+                        font-size: 18px;
                         color: var(--whiteColor);
-                        font-weight: 500;
-                        gap: .5rem;
-
+                  }
+                  }
+                  
+                  
+                }
+        
+                .footerCard{
+                    position: relative;
+                    padding: 1rem 1rem 4rem;
+                    border-radius: 1rem;
+                    gap: 2rem;
+                    justify-content: center;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    width: 100%;
+                    background: var(--bodyColor);
+                    overflow: hidden;
+                    
+                    .footerIntro{
+                        flex-basis: 50%;
+                        justify-content: center;
+                        align-items: flex-start;
+                        flex-direction: column;
+                        row-gap: .5rem;
+                    }
+                    .logoDiv{
+                        .logo{
+                            color: var(--blackColor);
+                            font-weight: 600;
+                            .icon{
+                                font-size: 25px;
+                                color: var(--PrimaryColor);
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+                    .footerParagraph{
+                        font-size: 13px;
+                        color: var(--textColor);
+                    }
+                    .footerSocials{
+                        column-gap: .5rem;
                         .icon{
-                            font-size: 18px;
+                            color: var(--blackColor);
+                            font-size: 20px;;
+        
+                            &:hover{
+                                color: var(--PrimaryColor);
+                            }
+                        }
+                    }
+                    .footerLinks{
+                        flex-basis: 50%;
+                        width: 100%;
+                        gap: 1rem;
+                        grid-template-columns: repeat(2,1fr);
+                        justify-content: space-between;
+                          .linkGroup{
+                            .groupTitle{
+                                display: block;
+                                font-weight: 600;
+                                margin-bottom: .5rem;
+                                color: var(--blackColor);
+        
+                            }
+        
+                            .footerList{
+                                font-size: 15px;
+                                color: var(--textColor);
+                                transition: .3s ease-in-out;
+                                 cursor: pointer;
+                                .icon{
+                                    font-size: 15px;
+                                    color: var(--greyText);
+                                }
+                                &:hover{
+                                    color: var(--PrimaryColor);
+                                    transform: translateX(7px);
+                                    
+                                    .icon{
+                                        color: var(--SecondaryColor);
+                                    }
+                                }
+                            }
+                          }
+                    }
+        
+                    .footerDiv{
+                        flex-direction: column;
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        background:var(--SecondaryColor);
+                        padding: .5rem 2rem;
+                        small{
+                            font-size: 10px;
                             color: var(--whiteColor);
-                             margin-bottom: 9px;
+                        }
+                    }
+                }
+        
+               }
+            }
+
+            //MEDIA QURIES =============================================>
+            @media screen and (min-width:500px){
+            .footer{
+                .secContent{
+                    .footerCard{
+                        .footerLinks{
+                            grid-template-columns: repeat(3, 1fr);
+                            padding-bottom: 1rem;
+                        }
+                        .footerDiv{
+                            justify-content: space-between;
+                            flex-direction: row;
+
+                            small{
+                                font-size: 14px;
+                                color: var(--whiteColor);
+                            }
                         }
                     }
                 }
             }
-
         }
 
-    }
+
+
+        @media screen and (min-width:840px){
+            .footer{
+                padding: 5rem 0;
+                .secContent{
+                    .footerCard{
+                        flex-direction: row;
+                        .footerLinks{
+                            grid-template-columns: repeat(3,1fr);
+                            padding-bottom: 1rem;
+                        }
+                    }
+                   
+
+                    
+                }
+            }
+        }
+
+        @media screen and (min-width:1024px){
+            .footer{
+                .secContent{
+                    .footerCard{
+                        padding: 3rem 1rem;
+                        .footerIntro{
+                            .footerParagraph{
+                                font-size: 15px;
+                                color: var(--textColor);
+
+                            }
+                            .footerSocials{
+                                column-gap: .5rem;
+                                .icon{
+                                    color: var(--textColor);
+                                    font-size: 25px;
+                                    &:hover{
+                                        color: var(--PrimaryColor);
+                                    }
+                                }
+
+                            }
+                        }
+
+                        .footerLinks{
+                            .linkGroup{
+                                .footerList{
+                                    font-size: 16px;
+                                    padding: 5px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }

@@ -10,6 +10,9 @@ import img5 from '../../Assets/travelimg5.jpg'
 import img6 from '../../Assets/travelimg6.jpg'
 import { HiOutlineClipboardCheck } from 'react-icons/hi'
 import {HiOutlineLocationMarker} from 'react-icons/hi'
+import { useEffect } from "react";
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const data = [
   {
@@ -70,10 +73,13 @@ const data = [
 
 
 export default function Main() {
+  useEffect(()=>{
+  Aos.init({duration:2000})
+ },[])
   return (
      <section className='main container section'>
           <div className='secTitle'>
-           <h3 className='title'>
+           <h3 data-aos="fade-right" className='title'>
               Most Visited destinations
            </h3>
           </div>
@@ -84,7 +90,7 @@ export default function Main() {
             {
               data.map((elm)=>{
                 return(
-                  <div key={elm.id} className='singleDestination'>
+                  <div key={elm.id} data-aos="fade-up" className='singleDestination'>
                           <div className='imageDiv'>
                             <img src={elm.imgsrc} alt={elm.destTitle}/>
                           </div>

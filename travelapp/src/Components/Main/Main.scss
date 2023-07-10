@@ -30,7 +30,7 @@
                     height: 5px;
                     width: 110px;
                     right: 0;
-                    bottom: 3px;
+                    bottom: 4px;
                     z-index: -1;
 
 
@@ -87,7 +87,6 @@
                          .icon{
                             color: var(--textColor);
                             font-size: 18px;
-                            margin-bottom: 10px;
                          }
                          .name{
                              color: var(--textColor); 
@@ -143,7 +142,6 @@
                             align-self: center;
                             font-size: 18px;
                             color: white;
-                            margin-bottom: 9px;
                         }
                     }
 
@@ -152,3 +150,35 @@
             }
         }
     }
+
+
+    //  MEDIA QURIES ==================>
+
+    @media screen and (min-width: 500px) {
+        .title{
+            font-size: 1.5rem;
+            &::after{
+                width: 140px !important;
+            }
+        }
+        .secContent{
+            grid-template-columns: repeat(2, 1fr);
+
+            .singleDestination{
+                height: auto;
+            }
+        }
+    }
+
+    @media screen and (min-width: 840px){
+        .secContent{
+            grid-template-columns: repeat(3, 1fr);
+
+            .singleDestination{
+                height: auto;
+            }
+        }
+
+    }
+
+
