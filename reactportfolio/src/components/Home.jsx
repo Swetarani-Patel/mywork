@@ -1,5 +1,6 @@
 // components/Home.js
 import React, { useEffect } from 'react';
+import img from './../Assets/sweet.png';
 import Typed from 'typed.js';
 import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
@@ -36,7 +37,7 @@ const Home = () => {
       <div className="outer">
         <span></span>
         <span></span>
-        <img className="image" src="sweet.png" alt="" />
+        <img className="image" src={img} alt="sweta" />
       </div>
     </section>
   );

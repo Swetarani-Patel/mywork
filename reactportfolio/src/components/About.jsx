@@ -1,6 +1,5 @@
-// components/About.js
 import React from 'react';
-
+import img from './../Assets/sweet.png';
 const About = () => {
   return (
     <section className="about" id="about">
@@ -8,7 +7,7 @@ const About = () => {
         <div className="outer2">
           <span></span>
           <span></span>
-          <img className="image" src="sweta_img (1).jpeg" alt="" />
+          <img className="image" src={img} alt="sweta" />
         </div>
       </div>
       <div className="about-text">
