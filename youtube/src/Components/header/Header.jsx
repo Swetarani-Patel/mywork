@@ -4,10 +4,10 @@ import { FaBars } from "react-icons/fa"
 import { AiOutlineSearch } from "react-icons/ai"
 import {MdOutlineNotifications, MdApps} from "react-icons/md"
 
-export default function Header() {
+export default function Header({handletoogle}) {
   return (
     <div className='border border-dark header'>
-      <FaBars className='header__menu' size={26}/>
+      <FaBars onClick={()=>handletoogle()} className='header__menu' size={26}/>
       <img src="https://www.freeiconspng.com/uploads/youtube-logo-png-transparent-image-5.png" 
        alt="youtube" 
         className='header__logo'
