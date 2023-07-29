@@ -12,7 +12,7 @@ const HomeScreen = () => {
         {
             [...new Array(20)].map(()=>{
             return(
-                <Col lg={3} md={4}>
+                <Col lg={4} md={3}>
                     <Video />
                 </Col>
             )

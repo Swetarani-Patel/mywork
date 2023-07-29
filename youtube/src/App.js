@@ -4,6 +4,8 @@ import Sidebar from "./Components/sidebar/Sidebar";
 import {Container} from 'react-bootstrap';
 import './app.scss'
 import { useState } from "react";
+ 
+import LoginScreen from "./Components/LoginScreen/LoginScreen";
 
 
 function App() {
@@ -16,13 +18,15 @@ function App() {
 
   return (
     <>
-       <Header handletoogle={handletoogle}/>
-       <div className="app__container border border-info">
+       {/* <Header handletoogle={handletoogle}/>
+       <div className="app__container border ">
        <Sidebar showsideBar={showsideBar} handletoogle={handletoogle}/>
-           <Container fluid className="app__main border border-warning">
+           <Container fluid className="app__main border">
             <HomeScreen/>
            </Container>
-       </div>
+       </div> */}
+       <LoginScreen/>
+       
 
     </>
   )
