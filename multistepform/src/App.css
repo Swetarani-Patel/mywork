@@ -1,0 +1,265 @@
+/* Unique CSS for StepOne component */
+
+
+.step-one-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #e2e2e2;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+}
+
+.step-one-label {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.step-one-input {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.step-one-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.step-one-button:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* step-2 */
+/* Unique CSS for StepTwo component */
+
+.step-two-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #e2e2e2;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+}
+
+.step-two-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensure the width includes padding and border */
+}
+
+/* Increase the size of the select element */
+.step-two-input.select {
+  width: 100%; /* Set the width to 100% to match other input elements */
+  padding: 10px; /* Adjust padding as needed */
+}
+
+.step-two-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px #007bff;
+}
+
+.step-two-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.step-two-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.step-two-button:hover {
+  background-color: #0056b3;
+}
+
+
+/* step-3 */
+/* Unique CSS for StepThree component */
+
+/* Unique CSS for StepThree component */
+
+/* Unique CSS for StepThree component */
+
+.step-three-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding-right: 40px;
+  padding-left: 20px;
+  padding-top:20px;
+  padding-bottom:20px;
+  
+  border: 2px solid #e2e2e2;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  box-sizing: border-box; /* Ensure the padding is included in the total width */
+}
+
+.step-three-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.step-three-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px #007bff;
+}
+
+.step-three-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.step-three-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.step-three-button:hover {
+  background-color: #0056b3;
+}
+
+/* step-4 */
+
+/* Unique CSS for StepFour component */
+
+.step-four-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding-right: 40px;
+  padding-left: 20px;
+  padding-top:20px;
+  padding-bottom:20px;
+  border: 2px solid #e2e2e2;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+}
+
+.step-four-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.step-four-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px #007bff;
+}
+
+.step-four-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: vertical; /* Allow vertical resizing of the textarea */
+}
+
+.step-four-textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px #007bff;
+}
+
+.step-four-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.step-four-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.step-four-button:hover {
+  background-color: #0056b3;
+}
+
+/* userinfo */
+/* Unique CSS for UserInfo component */
+
+.user-info-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #e2e2e2;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+}
+
+.user-info-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: green;
+}
+
+.user-info-item {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+h1{
+  text-align: center;
+}
+h2[data-cy="current-step"].steps {
+  text-align: center;
+  margin-left: 590px;
+  font-size: 24px;
+  color: #333; /* Choose your desired text color */
+  background-color: #f2f2f2; /* Choose your desired background color */
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+
+
