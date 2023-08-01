@@ -1,50 +1,53 @@
 import React from 'react'
-import './sidebar.scss'
+import './_sidebar.scss'
+import {MdSubscriptions,MdExitToApp,MdThumbUp,MdHistory,MdLibraryBooks,MdHome,MdSentimentDissatisfied} from 'react-icons/md'
+import { logout } from '../../Redux/actions/authaction'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+const Sidebar = ({sidebar,handl}) => {
+ const naviget  =  useNavigate()
+  const  dispatch = useDispatch()
+  function logouthanddler(){
+    
+    dispatch(logout())
+   
 
-import{MdOutlineSubscriptions, MdExitToApp, MdHistory, MdOutlineVideoLibrary,MdSentimentVeryDissatisfied} from "react-icons/md"
-import {AiOutlineHome} from "react-icons/ai"
-import {FiThumbsUp} from "react-icons/fi"
-
-export default function Sidebar({showsideBar, handletoogle}) {
+  }
+  // let classes = sidebar? ' sidebar sidebarshow':'sidebar'
   return (
-    <nav onClick={()=>handletoogle()} className={showsideBar ? "sidebar open" : "sidebar"}>
-     <li>
-      <AiOutlineHome size={23}/>
-      <span>Home</span>
-     </li>
-
-     <li>
-      <MdOutlineSubscriptions size={23}/>
-      <span>Subscription</span>
-     </li>
-
-     <li>
-      <FiThumbsUp size={23}/>
-      <span>Liked Video</span>
-     </li>
-
-     <li>
-      <MdHistory size={23}/>
-      <span>History</span>
-     </li>
-
-     <li>
-      <MdOutlineVideoLibrary size={23}/>
-      <span>Library</span>
-     </li>
-
-
-     <li>
-      <MdSentimentVeryDissatisfied size={23}/>
-      <span>I don't know</span>
-     </li>
-     <hr />
-
-     <li>
-      <MdExitToApp size={23}/>
-      <span>Log Out</span>
-     </li>
-     <hr />
+    <nav className= {sidebar? ' sidebar show':'sidebar'} onClick={()=>handl()}>
+       <li>
+        <MdHome size={23}/>
+        <span>Home</span>
+       </li>
+       <li>
+        <MdSubscriptions size={23}/>
+        <span>Subcriptions</span>
+       </li>
+       <li>
+        <MdThumbUp size={23}/>
+        <span>Liked Video</span>
+       </li>
+       <li>
+        <MdHistory size={23}/>
+        <span>Histroy</span>
+       </li>
+       <li>
+        <MdLibraryBooks size={23}/>
+        <span>Library</span>
+       </li>
+       <li>
+        <MdSentimentDissatisfied size={23}/>
+        <span>i don't know</span>
+       </li>
+       <hr />
+       <li onClick={logouthanddler}>
+        <MdExitToApp size={23}/>
+        <span>Log out</span>
+       </li>
+       <hr />
     </nav>
   )
 }
+
+export default Sidebar
