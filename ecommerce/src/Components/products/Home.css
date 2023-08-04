@@ -1,0 +1,45 @@
+/* Home.css */
+
+/* Hero section */
+.hero {
+    background-color: #156158;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  /* Hero content */
+  .hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Hero title */
+  .hero-content h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Hero description */
+  .hero-content p {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+  
+  /* Hero button */
+  .hero-content button {
+    background-color: #fff;
+    color: #156158;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .hero-content button:hover {
+    background-color: #f5f5f5;
+  }
+  
