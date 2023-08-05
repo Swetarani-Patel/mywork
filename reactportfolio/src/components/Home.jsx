@@ -1,6 +1,6 @@
 // components/Home.js
 import React, { useEffect } from 'react';
-import img from './../Assets/sweet.png';
+import img from './../Assets/profile.png';
 import Typed from 'typed.js';
 import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 

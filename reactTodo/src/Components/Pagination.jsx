@@ -1,5 +1,4 @@
-function Pagination({ page,limit,totalTodo, setPage }) {
-  
+function Pagination({ page, limit, totalTodo, setPage }) {
   const handleNextPage = async () => {
     await setPage(page + 1);
   };
@@ -7,9 +6,8 @@ function Pagination({ page,limit,totalTodo, setPage }) {
   const handlePrevPage = async () => {
     await setPage(page - 1);
   };
- 
-   
-  const totalPages = Math.ceil(totalTodo / limit);  
+
+  const totalPages = Math.ceil(totalTodo / limit);
 
   return (
     <div data-testid="pagination" className="pagination">
@@ -17,7 +15,9 @@ function Pagination({ page,limit,totalTodo, setPage }) {
         PREVIOUS
       </button>
       <div>{page}</div>
-      <button onClick={handleNextPage} disabled={page===totalPages}>NEXT</button>
+      <button onClick={handleNextPage} disabled={page === totalPages}>
+        NEXT
+      </button>
     </div>
   );
 }

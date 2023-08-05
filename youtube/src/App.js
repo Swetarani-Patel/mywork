@@ -8,6 +8,7 @@ import { useState } from "react";
 import LoginScreen from "./Components/LoginScreen/LoginScreen";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import WatchScreen from "./Components/Screens/watchScreen/WatchScreen";
 
 const Leyout = ({ children }) => {
   const [sidebar, toggleSidebar] = useState(false);
@@ -18,7 +19,7 @@ const Leyout = ({ children }) => {
   return (
     <>
       <Header handl={handl} />
-      <div className="app__container border">
+      <div className="app__container">
         <Sidebar sidebar={sidebar} handl={handl} />
         <Container>{children}</Container>
       </div>
@@ -26,38 +27,47 @@ const Leyout = ({ children }) => {
   );
 };
 
- 
 const App = () => {
+  const accessToken = useSelector((state) => state.auth.accessToken);
+  const loading = useSelector((state) => state.auth.loading);
+  const naviget = useNavigate();
 
-
-
-   const accessToken = useSelector((state) => state.auth.accessToken);
-   const loading = useSelector((state) => state.auth.loading);
-    const naviget  =  useNavigate();
-
-     useEffect(()=>{
-    
-  if(!loading&&(accessToken===null)){
-    naviget('/auth')
-    
-  }
- 
- 
-},[accessToken,loading])
-
-
-
+  useEffect(() => {
+    if (!loading && accessToken === null) {
+      naviget("/auth");
+    }
+  }, [accessToken, loading]);
 
   return (
     <Routes>
-      <Route path="/"  element={ <Leyout><HomeScreen/></Leyout> } />
-      <Route path="/auth"  element={<LoginScreen/>}/>
-      <Route path="/search"  element={   <Leyout><h1>Search is working</h1></Leyout>  }/>
-      <Route path="*"  element={<Navigate to='/'/>} />
-      
+      <Route
+        path="/"
+        element={
+          <Leyout>
+            <HomeScreen />
+          </Leyout>
+        }
+      />
+      <Route path="/auth" element={<LoginScreen />} />
+      <Route
+        path="/search"
+        element={
+          <Leyout>
+            <h1>Search Results</h1>
+          </Leyout>
+        }
+      />
+      <Route
+        path="/watch/:id"
+        element={
+          <Leyout>
+            <WatchScreen />
+          </Leyout>
+        }
+      />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };
 
 export default App;
-

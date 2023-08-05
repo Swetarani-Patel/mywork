@@ -31,7 +31,7 @@ const Header = () => {
         <a href="#skill" style={{ '--i': 3 }}>Skill</a>
         <a href="#project" style={{ '--i': 4 }}>Projects</a>
         <a href="#Contact" style={{ '--i': 5 }}>Contact</a>
-        <a href="html.png" target="_blank" style={{ '--i': 6 }}>Resume</a>
+        <a href={require("./../Assets/SWETARANI PATEL (1).pdf")} target="_blank" style={{ '--i': 6 }}>Resume</a>
       </nav>
     </header>
   );

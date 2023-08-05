@@ -2,17 +2,17 @@
   "todos": [
     {
       "id": 1,
-      "status": true,
+      "status": false,
       "title": "Learn HTML"
     },
     {
       "id": 2,
-      "status": true,
+      "status": false,
       "title": "Learn Java"
     },
     {
       "id": 3,
-      "status": true,
+      "status": false,
       "title": "Learn C++"
     },
     {

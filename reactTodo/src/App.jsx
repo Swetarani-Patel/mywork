@@ -1,9 +1,11 @@
 import TodoList from "./Components/TodoList";
-import './App.css';
+import "./App.css";
 
 function App() {
-  return <>{/* Add TodoList component here */}
-  <TodoList/>
-  </>;
+  return (
+    <>
+      <TodoList />
+    </>
+  );
 }
 export default App;

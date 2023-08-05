@@ -14,18 +14,17 @@ export const login=()=>  async (dispatch) => { // Added 'return' keyword
         })
 
       const provider = new firebase.auth.GoogleAuthProvider();
-      provider.addScope("https://www.googleapis.com/auth/youtube.force-ssl")
-
+    provider.addScope("https://www.googleapis.com/auth/youtube.force-ssl")
       let res = await auth.signInWithPopup(provider); // Added '()' after auth to call the function
     
-      // console.log(res);
+      console.log(res);
       const accessToken = res.credential.accessToken;
       
       const profile= {
         name:res.additionalUserInfo.profile.name,
         photoURL:res.additionalUserInfo.profile.picture,
       }
-      // console.log(profile);
+      console.log(profile);
       sessionStorage.setItem("ytc-access-token", accessToken);
       sessionStorage.setItem("ytc-user", JSON.stringify(profile));
       dispatch({

@@ -1,7 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 const firebaseConfig = {
-  apiKey: "AIzaSyA6qXc22i7XxDmRad4vT6mcPRakOjpsyLM",
+  apiKey: "AIzaSyCp5C1_IF9E9Tje4I5lVuV4OCDM-Tbrsjc",
   authDomain: "tube-you-clone.firebaseapp.com",
   projectId: "tube-you-clone",
   storageBucket: "tube-you-clone.appspot.com",
@@ -11,4 +11,3 @@ const firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig)
   export default firebase.auth();
-  

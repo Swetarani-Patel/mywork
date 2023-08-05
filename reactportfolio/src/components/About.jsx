@@ -17,7 +17,9 @@ const About = () => {
           Hey there! I'm Swetarani Patel, a passionate full stack web developer specializing in HTML, CSS, JavaScript, React, and Node.js. I create dynamic user interfaces and pixel-perfect layouts that integrate with robust back-end functionality.
           With extensive experience in front-end development, I utilize React to build responsive and scalable applications. On the server side, I work with Node.js to develop powerful back-end solutions, including RESTful APIs using Express.js and databases like MongoDB and MySQL.
         </p>
-        <a download href="html.png" className="btn-box">Download CV</a>
+        <a download href={require("./../Assets/SWETARANI PATEL (1).pdf")} className="btn-box">
+  Download CV
+</a>
       </div>
     </section>
   );
