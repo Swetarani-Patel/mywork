@@ -1,4 +1,4 @@
-import { COMMENT_LIST_FAIL, COMMENT_LIST_REQUEST, COMMENT_LIST_SUCCESS } from "../ActionType";
+import { COMMENT_LIST_FAIL, COMMENT_LIST_REQUEST, COMMENT_LIST_SUCCESS, CREATE_COMMENT_FAIL, CREATE_COMMENT_SUCCESS } from "../ActionType";
 import request from "../../api";
 export const getCommentsOfVideoById = (id) => async (dispatch) => {
     try {
@@ -8,7 +8,8 @@ export const getCommentsOfVideoById = (id) => async (dispatch) => {
       const { data } = await request("/commentThreads", {
         params: {
           part: "snippet",
-          videoId:id
+          videoId:id,
+          maxResults:40,
         },
       });
       dispatch({
@@ -21,5 +22,88 @@ export const getCommentsOfVideoById = (id) => async (dispatch) => {
       type: COMMENT_LIST_FAIL,
       payload: error.response.data.message,
       })
+    }
+  };
+
+
+
+  // export const addComment = (id, text) => async (dispatch, getState) => {
+  //   try {
+  //     const obj = {
+  //       snippet:{
+  //         videoId:id,
+  //         topLevelComment:{
+  //           snippet:{
+  //             textOriginal:text,
+  //           }
+  //         }
+  //       }
+  //     }
+  //     console.log(obj)
+  //      await request.post("/commentThreads",obj, {
+  //       params: {
+  //         part: "snippet",
+  //       },
+  //       headers:{
+  //         Authorization:`Bearer ${getState().auth.accessToken}`
+  //       }
+  //     });
+  //     dispatch({
+  //       type: CREATE_COMMENT_SUCCESS,
+  //     });
+       
+  //     setTimeout(()=>{
+  //       dispatch(getCommentsOfVideoById(id))
+  //     },3000)
+      
+  //   } catch(error) {
+  //     console.log(error.response.data);
+  //   dispatch({
+  //     type: CREATE_COMMENT_FAIL,
+  //     payload: error.response.data.message,
+  //     })
+  //   }
+  // };
+  
+
+  
+
+  export const addComment = (id,text) => async (dispatch,getState) => {
+    try {
+      const comment ={
+        snippet:{
+          videoId:id,
+          topLevelComment:{
+            snippet:{
+              textOriginal:text,
+            }
+          }
+        }
+      }
+  console.log(text);
+    await request.post('/commentThreads',comment, {
+        params: {
+          part: "snippet",
+        
+        },
+        headers: {
+          Authorization: `Bearer ${getState().auth.accessToken}`,
+        },
+      });
+      dispatch({
+        type: CREATE_COMMENT_SUCCESS,
+        
+      });
+
+setTimeout(()=>{
+  dispatch(getCommentsOfVideoById(id));
+},4000)
+      
+    } catch (error) {
+      
+      dispatch({
+        type: CREATE_COMMENT_FAIL,
+        payload: error.response.data.message,
+      });
     }
   };
