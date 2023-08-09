@@ -10,7 +10,8 @@ import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import WatchScreen from "./Components/Screens/watchScreen/WatchScreen";
 import SearchScreen from "./Components/Screens/SearchScreen";
-
+import SubscriptionScreen from "./Components/Screens/SubscriptionScreen/SubscriptionScreen";
+import ChannelScreen from "./Components/Screens/channelScreen/ChannelScreen";
 
 const Leyout = ({ children }) => {
   const [sidebar, toggleSidebar] = useState(false);
@@ -55,7 +56,7 @@ const App = () => {
         path="/search/:query"
         element={
           <Leyout>
-           <SearchScreen/>
+            <SearchScreen />
           </Leyout>
         }
       />
@@ -67,6 +68,20 @@ const App = () => {
           </Leyout>
         }
       />
+
+      <Route
+        path="/feed/subscriptions"
+        element={
+          <Leyout>
+            <SubscriptionScreen />
+          </Leyout>
+        }
+      />
+
+      <Route
+        path="/channel/:channelId"
+        element={<Leyout><ChannelScreen/></Leyout>}
+      /> 
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );

@@ -4,6 +4,7 @@ import {MdSubscriptions,MdExitToApp,MdThumbUp,MdHistory,MdLibraryBooks,MdHome,Md
 import { logout } from '../../Redux/actions/authaction'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 const Sidebar = ({sidebar,handl}) => {
  const naviget  =  useNavigate()
   const  dispatch = useDispatch()
@@ -20,10 +21,14 @@ const Sidebar = ({sidebar,handl}) => {
         <MdHome size={23}/>
         <span>Home</span>
        </li>
+
+       <Link to='/feed/subscriptions'>
        <li>
         <MdSubscriptions size={23}/>
         <span>Subcriptions</span>
        </li>
+       </Link>
+       
        <li>
         <MdThumbUp size={23}/>
         <span>Liked Video</span>

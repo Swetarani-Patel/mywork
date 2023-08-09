@@ -1,7 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 const firebaseConfig = {
-  apiKey: "AIzaSyAChW6rzzbVHOZXR5Ad2svo0xxRc4nA1-Y",
+  apiKey: "AIzaSyBXBzgfRz6Vr-kxjf53xCwbZWDYhhWhiNg",
   authDomain: "ytube2-8f89d.firebaseapp.com",
   projectId: "ytube2-8f89d",
   storageBucket: "ytube2-8f89d.appspot.com",

@@ -5,7 +5,7 @@ import moment from "moment";
 import numeral from "numeral";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
-const Video = ({ video }) => {
+const Video = ({ video, ChannelScreen}) => {
   const {
     id,
     snippet: {
@@ -15,6 +15,7 @@ const Video = ({ video }) => {
       publishedAt,
       thumbnails: { medium },
     },
+    contentDetails,
   } = video;
 
 
@@ -25,7 +26,7 @@ const Video = ({ video }) => {
   const seconds = moment.duration(duration).asSeconds();
   const _duration = moment.utc(seconds * 1000).format("mm:ss");
 
-  const _videoId = id?.videoId || id;
+  const _videoId = id?.videoId || contentDetails?.videoId || id;
 
    const navigate = useNavigate();
 
@@ -73,11 +74,19 @@ const Video = ({ video }) => {
       </div>
       <div className="video__bottom">
         {/* <img src={channelicon?.url} alt="" /> */}
-        <LazyLoadImage src={channelicon?.url} effect="blur "/>
-
+        {
+          !ChannelScreen && (<LazyLoadImage src={channelicon?.url} effect="blur "/>)
+        }
+        
+      
         <div className="right">
+       
           <span className="video__title">{title}</span>
-          <span>{channelTitle}</span>
+    
+            {
+              !ChannelScreen && ( <span>{channelTitle}</span>)
+            }
+         
           <div className="video__details">
             <span> {numeral(views).format("0.a")} views • </span>
             <span>{moment(publishedAt).fromNow()}</span>

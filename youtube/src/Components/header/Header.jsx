@@ -12,7 +12,7 @@ const Header = ({ handl }) => {
   const navigate = useNavigate();
 const handleSubmit = (e)=>{
 e.preventDefault();
-navigate(`search/${input}`)
+navigate(`/search/${input}`)
 }
 
   return (
