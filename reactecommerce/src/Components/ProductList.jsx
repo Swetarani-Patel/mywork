@@ -17,7 +17,7 @@ function ProductList({ ele }) {
           ${price}
         </Text>
         <Button mt="10px" colorScheme='green' size='lg'>
-          <BsCart4/> &nbsp;Add to Bag
+          <BsCart4/> &nbsp;Buy Now
         </Button>
       </Box>
     </Box>

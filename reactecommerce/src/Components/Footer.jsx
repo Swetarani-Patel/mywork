@@ -49,7 +49,6 @@ function Footer() {
             <Text>
               Subscribe to our newsletter to receive updates on new arrivals, special offers, and more.
             </Text>
-            {/* Add newsletter subscription form here */}
           </GridItem>
         </Grid>
         <Text mt={8} textAlign="center">

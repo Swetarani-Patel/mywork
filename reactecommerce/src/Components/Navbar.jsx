@@ -18,10 +18,10 @@ const Navbar = () => {
 
   return (
     <Box
-      bg={colorMode === 'light' ? 'gray.100' : 'gray.900'}
+      bg={colorMode === 'light' ? 'gray.200' : 'gray.900'}
       py={4}
       px={8}
-      boxShadow="0px 3px 8px rgba(0, 0, 0, 0.24)"
+      boxShadow={'lg'}
     >
       <Flex alignItems="center">
         <ChakraLink as={Link} to="/" fontSize="xl" fontWeight="bold">

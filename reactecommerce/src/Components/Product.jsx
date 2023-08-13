@@ -1,93 +1,56 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getProductsData } from '../redux/actionCreator'
-import axios from 'axios'
-import ProductList from './ProductList';
-import { SimpleGrid, Box, Button, Container, Heading } from '@chakra-ui/react';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import ProductList from "./ProductList";
+import { SimpleGrid, Box, Heading,Skeleton } from "@chakra-ui/react";
+import CategoryBtn from "./CategoryBtn";
+import { getAll, getData, getMen, getJel, getWomen, getEle } from "./api";
 
 function Product() {
+  const [url, setUrl] = useState("https://fakestoreapi.com/products");
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const storeData = useSelector((store)=>{
+  const storeData = useSelector((store) => {
     return store.product;
-  })
-  useEffect(()=>{
-    axios.get('https://fakestoreapi.com/products')
-    .then((response)=>{
-      dispatch(getProductsData(response.data))
-      console.log(response.data);
-    }).catch((error)=>{
-      console.log('error')
-    })
-  },[])
+  });
+
+  useEffect(() => {
+    setLoading(true);
+    getData(dispatch, url)
+      .then(() => setLoading(false))
+      .catch(() => setLoading(false));
+  }, [url]);
+
   return (
     <Box>
-    <Heading as="h1" mt='4'>
-    
-          Latest Products
-        </Heading>
-        <Button
-          variant="outline"
-          mt={6}
-          mr={2}
-         
-          _hover={{ bg: 'pink.50'}}
-        >
-          All
-        </Button>
-       <Button variant="outline"
-          mt={6}
-          mr={2}
-         
-         
-          _hover={{ bg: 'pink.50' }}>  Men's Clothing</Button>
-       <Button variant="outline"
-          mt={6}
-          mr={2}
-         
-         
-          _hover={{ bg: 'pink.50' }}>Women's Clothing</Button>
-       <Button variant="outline"
-          mt={6}
-          mr={2}
-         
-         
-          _hover={{ bg: 'pink.50' }}> jewellery</Button>
-       <Button variant="outline"
-          mt={6}
-          mr={2}
-         
-         
-          _hover={{ bg: 'pink.50' }}> Electronics</Button>
-       <Button variant="outline"
-          mt={6}
-          mr={2}
-         
-         
-          _hover={{ bg: 'pink.50' }}> Low To High</Button>
-       <Button variant="outline"
-          mt={6}
-          mr={2}
-         
-         
-          _hover={{ bg: 'pink.50' }}> High To Low</Button>
-       <Button variant="outline"
-          mt={6}
-          mr={2}
-         
-         
-          _hover={{ bg: 'pink.50' }}> Filter</Button>
-      <SimpleGrid columns={3} p={'50px'} rowGap={'30px'} columnGap={'30px'}>
-    {
-      storeData.map((ele)=>{
-        return <ProductList key={ele.id} ele={ele}/>
-      })
-    }
-    </SimpleGrid>
+      <Heading as="h1" mt="4">
+        Latest Products
+      </Heading>
+      <CategoryBtn text="All" onClick={() => getAll(setUrl)} />
+      <CategoryBtn text="Men's Clothing" onClick={() => getMen(setUrl)} />
+      <CategoryBtn text="Women's Clothing" onClick={() => getWomen(setUrl)} />
+      <CategoryBtn text="Jewellery" onClick={() => getJel(setUrl)} />
+      <CategoryBtn text="Electronics" onClick={() => getEle(setUrl)} />
+      
+      {loading ? (
+        <SimpleGrid columns={3} p={"50px"} rowGap={"30px"} columnGap={"30px"}>
+          {Array.from({ length: 9 }).map((_, index) => (
+            <Box p="4" borderWidth="1px" borderRadius="md" key={index}>
+              <Skeleton height="150px" width="100%" />
+              <Skeleton height="20px" width="100%" mb="2"/>
+              <Skeleton height="20px" mb="2"/>
+              <Skeleton height="20px" width="20%"/>
+            </Box>
+          ))}
+        </SimpleGrid>
+      ) : (
+        <SimpleGrid columns={3} p={"50px"} rowGap={"30px"} columnGap={"30px"}>
+          {storeData.map((ele) => (
+            <ProductList key={ele.id} ele={ele} />
+          ))}
+        </SimpleGrid>
+      )}
     </Box>
-   
-  )
-  
+  );
 }
 
-
-export default Product
+export default Product;
