@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './Components/Navbar';
-import AllRoutes from './Components/AllRoutes';
+import Navbar from './Components/navbar/Navbar';
+import AllRoutes from './Components/AllRoutes/AllRoutes';
 import { Provider } from 'react-redux';
 import myStore from './redux/store';
-import Footer from './Components/Footer';
+import Footer from './Components/footer/Footer';
 
 function App() {
   return (

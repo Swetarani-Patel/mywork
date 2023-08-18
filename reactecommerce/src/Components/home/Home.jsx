@@ -1,8 +1,11 @@
 import React from 'react';
 import { Box, Image, Text } from '@chakra-ui/react';
+import HomeProduct from './HomeProduct';
+
 
 function Home() {
   return (
+    <Box>
     <Box position="relative">
       <Image
         width="100%"
@@ -25,6 +28,8 @@ function Home() {
           Discover the Latest Trends in Fashion
         </Text>
       </Box>
+    </Box>
+ <HomeProduct/>
     </Box>
   );
 }

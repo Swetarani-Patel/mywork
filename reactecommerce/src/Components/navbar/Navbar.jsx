@@ -22,10 +22,13 @@ const Navbar = () => {
       py={4}
       px={8}
       boxShadow={'lg'}
+      position={'sticky'}
+      top={'0'}
+      zIndex={'10'}
     >
       <Flex alignItems="center">
-        <ChakraLink as={Link} to="/" fontSize="xl" fontWeight="bold">
-          My Website
+        <ChakraLink as={Link} to="/" fontSize="2xl" fontWeight="bold">
+         Glam<span style={{color:'#EF9B0F'}}>io.</span>
         </ChakraLink>
         <Spacer />
         <Flex>
@@ -47,9 +50,11 @@ const Navbar = () => {
          <AiOutlineLogin/>&nbsp; Login
         </Button>{' '}
         &nbsp;&nbsp;
+        <Link to='/cart'>
         <Button border="2px" borderColor="gray.400">
         <BsCart4/> &nbsp;  Cart
         </Button>{' '}
+        </Link>
         &nbsp;&nbsp;
         <IconButton
           aria-label="Toggle Color Mode"
