@@ -17,7 +17,7 @@ const intial = {
 };
  
 
-export const authreducer = (prevState = { intial }, action) => {
+export const authreducer = (prevState = { ...intial }, action) => {
   const { type, payload } = action;
 
   switch (type) {

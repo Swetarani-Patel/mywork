@@ -22,7 +22,7 @@ const Sidebar = ({sidebar,handl}) => {
         <span>Home</span>
        </li>
 
-       <Link to='/feed/subscriptions'>
+       <Link to='/feed/subscriptions' className='sub-link'>
        <li>
         <MdSubscriptions size={23}/>
         <span>Subcriptions</span>

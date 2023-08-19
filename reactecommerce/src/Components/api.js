@@ -1,5 +1,6 @@
 import axios from "axios";
-import { getProductsData } from "../redux/actionCreator";
+import { getProductsData } from "../redux/productaction/actionCreator";
+// import { getProductsData } from "../redux/actionCreator";
 let baseurl = "https://fakestoreapi.com/products";
 export const getData = (dispatch, url) => {
   return axios

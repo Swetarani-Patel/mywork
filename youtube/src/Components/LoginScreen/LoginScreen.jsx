@@ -25,7 +25,7 @@ useEffect(()=>{
     <div className="login__container">
         <img  src="https://pngimg.com/uploads/youtube/youtube_PNG2.png" alt="" />
         <button onClick={handdleLogin}>Login With google</button>
-        <p>this project is made using you tube api</p>
+        <p>This project is made using youtube API</p>
     </div>
    </div>
   )

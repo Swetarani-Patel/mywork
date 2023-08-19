@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProductList from "./ProductList";
-import { SimpleGrid, Box, Heading, Select } from "@chakra-ui/react";
+import { SimpleGrid, Box,Select } from "@chakra-ui/react";
 import CategoryBtn from "../CategoryBtn";
 import { getAll, getData, getMen, getJel, getWomen, getEle } from "../api";
 import ProdSkeleton from "./ProdSkeleton";
@@ -11,7 +11,7 @@ function Product() {
   const [loading, setLoading] = useState(false);
   const [selectedSort, setSelectedSort] = useState("default");
   const dispatch = useDispatch();
-  const storeData = useSelector((store) => store.product);
+  const storeData = useSelector((store) => store.product.product);
 
   useEffect(() => {
     setLoading(true);
@@ -38,15 +38,14 @@ function Product() {
   return (
     <Box>
       <Box>
-        <Heading as="h1" mt="4">
-          Latest Products
-        </Heading>
+        
         <CategoryBtn text="All" onClick={() => getAll(setUrl)} />
         <CategoryBtn text="Men's Clothing" onClick={() => getMen(setUrl)} />
         <CategoryBtn text="Women's Clothing" onClick={() => getWomen(setUrl)} />
         <CategoryBtn text="Jewellery" onClick={() => getJel(setUrl)} />
         <CategoryBtn text="Electronics" onClick={() => getEle(setUrl)} />
         <Select
+        ml={'1rem'}
           w={"15%"}
           paddingY={2}
           value={selectedSort}

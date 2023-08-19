@@ -24,7 +24,7 @@ function Comments({videoId, totalComments}) {
       <p>{totalComments} Comments</p>
       <div className="comments__form d-flex 1-100 my-2">
         <img
-          src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+          src="https://lh3.googleusercontent.com/a/AAcHTtcJd5Af9JghwtlsKggJek5nsXKeGKJLAvpLwDgCibMCn_BK=s96-c"
           alt=""
           className="rounded-circle mr-3"
         /> &nbsp;&nbsp;&nbsp;&nbsp;

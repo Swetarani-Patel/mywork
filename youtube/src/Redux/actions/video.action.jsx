@@ -16,7 +16,6 @@ import {
   SUBSCRIPTION_CHANNEL_FAIL,
   CHANNEL_VIDEO_REQUEST,
   CHANNEL_VIDEO_SUCCESS,
-  CHANNEL_DETAILS_FAIL,
   CHANNEL_VIDEO_FAIL,
 } from "../ActionType";
 import request from "../../api";
@@ -114,18 +113,20 @@ export const getVideoById = (id) => async (dispatch) => {
 };
 
 export const getRelatedVideos = (id) => async (dispatch) => {
+   console.log(id);
   try {
     dispatch({
       type: RELATED_VIDEO_REQUEST,
     });
-    const { data } = await request("/search", {
+    const { data } = await request('/search', {
       params: {
-        part: "snippet",
-        relatedToVideoId: id,
-        maxResults: 15,
-        type: "video",
+         part: 'snippet',
+         relatedToVideoId: id,
+         maxResults: 15,
+         type: 'video',
       },
-    });
+   })
+    
     dispatch({
       type: RELATED_VIDEO_SUCCESS,
       payload: data.items,
@@ -214,13 +215,13 @@ export const getVideosByChannelId = (id) => async (dispatch) => {
 
     const { data } = await request("/playlistItems", {
       params: {
-        part:"contentDetails,snippet",
-        playlistId:uploadPlaylistId,
-        maxResults:30,
+        part: "contentDetails,snippet",
+        playlistId: uploadPlaylistId,
+        maxResults: 30,
       },
     });
 
-    console.log(data);
+    // console.log(data);
     dispatch({
       type: CHANNEL_VIDEO_SUCCESS,
       payload: data.items,

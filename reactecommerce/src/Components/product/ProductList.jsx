@@ -1,11 +1,14 @@
-import { Box, Image, Text, Button } from "@chakra-ui/react";
+import { Box, Image, Text, Button, useToast } from "@chakra-ui/react";
 import React from "react";
 import { BsBag } from "react-icons/bs";
 import { Flex } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
-
-import { useDispatch, useSelector } from "react-redux";
-import { setTotalPrice } from "../../redux/actionCreator";
+import { addToCart } from "../localStorage/LocalStorage";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getCartItem } from "../../redux/cartAction/cartActionCreator";
+// import { useDispatch, useSelector } from "react-redux";
+// import { setTotalPrice } from "../../redux/actionCreator";
 
 function ProductList({ ele }) {
   const { image, title, price, rating, id } = ele;
@@ -14,7 +17,8 @@ function ProductList({ ele }) {
   // })
   // const dispatch  =  useDispatch();
 
-  
+  const dispatch = useDispatch();
+  const toast = useToast()
   return (
     <Box boxShadow="dark-lg" p="2" rounded="md" bg="white">
       <Box>
@@ -67,8 +71,9 @@ function ProductList({ ele }) {
           </Text>
         </Flex>
         {/* <Link to={"/cart"}> */}
+
           <Button
-         
+           onClick={()=>{addToCart(toast,ele, dispatch)}}
             mt="1rem"
             size="md"
             variant={"outline"}

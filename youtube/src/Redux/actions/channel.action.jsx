@@ -40,7 +40,7 @@ export const getChannelDetails = (id) => async (dispatch) => {
           Authorization:`Bearer ${getState().auth.accessToken}`
         }
       });
-      console.log(data);
+      // console.log(data);
       dispatch({
         type: SET_SUBSCRIPTION_STATUS,
         payload:data.items.length !== 0,

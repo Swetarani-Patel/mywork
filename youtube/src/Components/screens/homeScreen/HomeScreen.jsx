@@ -8,6 +8,8 @@ import {
   getVideosCategory,
 } from "../../../Redux/actions/video.action";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Skeleton from "react-loading-skeleton";
+import { SkeletonTheme } from "react-loading-skeleton";
 
 
 const HomeScreen = () => {
@@ -50,7 +52,11 @@ const HomeScreen = () => {
                 </Col>
               ))
             : 
-              (<h2>Loading</h2>)}
+            (
+        <SkeletonTheme color="#343a40" highlightColor="#3c4147">
+          <Skeleton width="100%" height="160px" count={20} />
+        </SkeletonTheme>
+      )}
         </InfiniteScroll>
       </Row>
     </Container>

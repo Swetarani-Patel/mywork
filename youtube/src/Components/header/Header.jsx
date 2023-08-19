@@ -46,7 +46,7 @@ navigate(`/search/${input}`)
         <IoMdNotifications size={28} />
         <MdApps size={28} />
         <img
-          src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+          src="https://lh3.googleusercontent.com/a/AAcHTtcJd5Af9JghwtlsKggJek5nsXKeGKJLAvpLwDgCibMCn_BK=s96-c"
           alt=""
         />
       </div>

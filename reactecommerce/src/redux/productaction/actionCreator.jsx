@@ -1,4 +1,4 @@
-import { SET_PRODUCTS, SET_TOTAL_PRICE } from "./actionType"
+import { SET_PRODUCTS, SET_TOTAL_PRICE } from "../actionType"
 
 export const getProductsData = (data)=>(dispatch)=>{
     dispatch({

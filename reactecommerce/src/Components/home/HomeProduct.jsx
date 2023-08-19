@@ -10,7 +10,7 @@ function HomeProduct() {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const storeData = useSelector((store) => {
-    return store.product;
+    return store.product.product;
   });
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function HomeProduct() {
       .then(() => setLoading(false))
       .catch(() => setLoading(false));
   }, [url]);
-  console.log(storeData);
+  // console.log(storeData);
 
   return (
     <Box mt={"3rem"}>

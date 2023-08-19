@@ -18,12 +18,14 @@
         padding: 0.6rem 1.5rem;
         margin: 0.2rem 0;
         cursor: pointer;
+        
 
         span{
             margin-left: 1rem;
             font-weight: 500;
             font-size: 14px;
             letter-spacing: 0.4px;
+            
         }
         &:hover{
             background-color: $border-color;
@@ -35,6 +37,12 @@
     &.show{
         transform: translate(0);
     }
+}
+
+.sub-link{
+    text-decoration: none;
+    color: #b1bdb4;
+    
 }
 @media (max-width: $breakpoint-medium){
     .sidebar{

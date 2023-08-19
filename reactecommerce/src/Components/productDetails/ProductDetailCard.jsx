@@ -1,12 +1,19 @@
 import React from "react";
-import {BsFillBagHeartFill, BsFillHeartFill, BsStarFill} from "react-icons/bs";
-import {Box, ButtonGroup,Flex,Image,Text,Button,HStack,} from "@chakra-ui/react";
-
+import {BsFillBagHeartFill, BsFillHeartFill} from "react-icons/bs";
+import {Box, ButtonGroup,Flex,Image,Text,Button,HStack, useToast,} from "@chakra-ui/react";
+import StarRating from "./StarRating";
+import { addToCart } from "../localStorage/LocalStorage";
+import { useDispatch } from "react-redux";
 
 function ProductDetailCard({ single, selectedSize, setSelectedSize }) {
+const dispatch = useDispatch()
+const toast = useToast()
   const handleSizeClick = (size) => {
     setSelectedSize(size);
-  };
+  }
+    
+
+  
   return (
     <Box mt="20px" p="30px">
       <Flex>
@@ -21,23 +28,11 @@ function ProductDetailCard({ single, selectedSize, setSelectedSize }) {
             {single.title}
           </Text>
           <Flex>
-            <Text mt={"0.3rem"}>
-              <BsStarFill />
-            </Text>
-            <Text mt={"0.3rem"}>
-              <BsStarFill />
-            </Text>
-            <Text mt={"0.3rem"}>
-              <BsStarFill />
-            </Text>
-            <Text mt={"0.3rem"}>
-              <BsStarFill />
-            </Text>
-            <Text mt={"0.3rem"}>
-              <BsStarFill />
-            </Text>{" "}
+          <>
+           <StarRating rating={single.rating.rate}/>
+            </>
             &nbsp;&nbsp;&nbsp;
-            <Text mb={"1rem"}>(230) Reviews</Text>
+            <Text mb={"1rem"}>{single.rating.count} Reviews</Text>
           </Flex>
           <Text align={"left"} mb={"1rem"} fontSize={"19px"}>
             ${single.price}
@@ -125,8 +120,9 @@ function ProductDetailCard({ single, selectedSize, setSelectedSize }) {
             )}
           </Box>
           <HStack mt="1rem">
-
+            {/* <Link to='/cart'> */}
             <Button
+              onClick={()=>{addToCart(toast, single, dispatch, selectedSize)}}
               variant={"outline"}
               boxShadow={"lg"}
               border={"1px solid"}
@@ -135,6 +131,7 @@ function ProductDetailCard({ single, selectedSize, setSelectedSize }) {
               {" "}
               <BsFillBagHeartFill /> &nbsp; Add To Bag
             </Button>
+            {/* </Link> */}
 
             <Button variant={"outline"} boxShadow={"lg"} border={"1px solid"}>
               {" "}
