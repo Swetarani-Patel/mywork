@@ -54,8 +54,8 @@ function Product() {
           <option value="default">Sort</option>
           <option value="priceLowToHigh">Price: Low to High</option>
           <option value="priceHighToLow">Price: High to Low</option>
-          <option value="reviewHighToLow">Review: High to Low</option>
-          <option value="reviewLowToHigh">Review: Low to High</option>
+          <option value="reviewHighToLow">Rating: High to Low</option>
+          <option value="reviewLowToHigh">Rating: Low to High</option>
         </Select>
       </Box>
       {loading ? (

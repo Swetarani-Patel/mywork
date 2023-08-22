@@ -33,12 +33,13 @@ function Cart() {
                 </Box>
                 <Box align={"left"}>
                   <Text fontWeight="semibold">
-                    {ele.title} &nbsp;{ele.size}
+                    {ele.title} &nbsp;
                   </Text>
                   <Text color="gray.600" fontSize="sm">
                     {ele.category}
                   </Text>
                   <Text fontSize="md">${ele.price}</Text>
+                  <Text>{ele.size}</Text>
 
                   <ButtonGroup>
                     <Button size="sm" variant="outline">
