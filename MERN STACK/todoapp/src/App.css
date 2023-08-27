@@ -1,45 +1,47 @@
-.todo{
-    text-align: center;
-    font-size: 60px;
-    margin-top: 20px;
-    color: rgb(111, 109, 109);
+body {
+  background-color: rgb(233, 230, 230);
+}
+.todo {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 20px;
+  color: rgb(111, 109, 109);
 }
 
 .form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .input {
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-    width: 60%;
-  }
-  
-  .input:focus {
-    border-color: gray; 
-  }
-  
-  .input::placeholder {
-    color: #aaa;
-    font-style: italic;
-  }
- 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.input {
+  padding: 10px;
+  font-size: 20px;
+  width: 63%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  outline: none;
+  border: 1px solid white;
+  padding: 20px;
+}
+
+.input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
 
 .task {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  /* border-bottom: 1px solid #ccc; */
   list-style: none;
   width: 55%;
   margin: auto;
+  cursor: pointer;
+  border: 1px solid rgb(232, 226, 226);
+  background-color: rgb(90, 89, 89);
+  color: rgb(232, 226, 226);
 }
 
 .task-text {
@@ -52,14 +54,38 @@
   gap: 10px;
 }
 
-.delete-icon, .edit-icon {
+.delete-icon,
+.edit-icon {
   cursor: pointer;
-  font-size: 1.2rem;
-  transition: color 0.3s ease-in-out;
+  font-size: 1.5rem;
 }
-
-/* .delete-icon:hover, .edit-icon:hover {
-  color: #f44336;
-} */
-
-  
+.edit-todo {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+}
+.tabs {
+  width: 67%;
+  margin: auto;
+}
+.button {
+  margin: 0 10px;
+  padding: 10px;
+  color: gray;
+  border-radius: 5px;
+  border: 1px solid rgb(215, 213, 213);
+  margin-bottom: 10px;
+}
+.button.selected {
+  color: #fff;
+  background-color: gray;
+}
+.button.clear {
+  float: right;
+  color: #fff;
+  padding: 10px;
+  background-color: #ee1630;
+  border-style: none;
+  width: 170px;
+}
