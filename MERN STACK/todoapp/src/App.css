@@ -1,0 +1,30 @@
+.todo{
+    text-align: center;
+    font-size: 60px;
+    margin-top: 20px;
+}
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    width: 60%;
+  }
+  
+  .input:focus {
+    border-color: gray; 
+  }
+  
+  .input::placeholder {
+    color: #aaa;
+    font-style: italic;
+  }
+  
