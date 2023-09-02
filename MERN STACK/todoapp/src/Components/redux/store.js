@@ -8,11 +8,11 @@ const reducer = combineReducers({
     todos:todosReducers,
     currentTab: tabReducer
 })
-const middleware = [thunk]
+
 
 const store = createrStore(
     reducer, 
-    composeWithDevTools(applyMiddleware(...middleware))
+    composeWithDevTools(applyMiddleware(thunk))
      )
 
      export default store;

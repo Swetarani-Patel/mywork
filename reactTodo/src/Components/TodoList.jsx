@@ -21,7 +21,7 @@ function TodoList() {
     setErr(false);
     try {
       let res = await fetch(
-        `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/todos?_page=${page}&_limit=${limit}`
+        `https://sweta-patel-api.onrender.com/todos?_page=${page}&_limit=${limit}`
       );
       totallength.current = parseInt(res.headers.get("X-Total-Count"));
 
@@ -39,7 +39,7 @@ function TodoList() {
 
     try {
       const res = await fetch(
-        `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/todos`,
+        `https://sweta-patel-api.onrender.com/todos`,
         {
           method: "POST",
           headers: {
@@ -66,7 +66,7 @@ function TodoList() {
       const todoToUpdate = todos.find((todo) => todo.id === id);
       const updatedTodo = { ...todoToUpdate, status: !todoToUpdate.status };
       let res = await fetch(
-        `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/todos/${id}`,
+        `https://sweta-patel-api.onrender.com/todos`,
         {
           method: "PUT",
           headers: {
@@ -88,7 +88,7 @@ function TodoList() {
 
     try {
       await fetch(
-        `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/todos/${id}`,
+        `https://sweta-patel-api.onrender.com/todos/${id}`,
         {
           method: "DELETE",
         }

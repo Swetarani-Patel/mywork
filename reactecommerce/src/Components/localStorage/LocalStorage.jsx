@@ -8,7 +8,7 @@ export const addToCart = (toast, single, dispatch, selectedSize) => {
     });
   
     if (filteredArr.length === 0) {
-      arr.push({ ...single, size: selectedSize });
+      arr.push({ ...single, size: selectedSize, quantity:1 });
       localStorage.setItem('cart', JSON.stringify(arr));
       dispatch(getCartItem(arr));
       const words = single.title.split(' ').slice(0, 3).join(' ');
@@ -22,6 +22,7 @@ export const addToCart = (toast, single, dispatch, selectedSize) => {
         position: "top",
       });
     } else {
+      filteredArr[0].quantity += 1;
      
       toast({
         title: "Item Already Exists",
@@ -34,3 +35,4 @@ export const addToCart = (toast, single, dispatch, selectedSize) => {
     }
   };
   
+

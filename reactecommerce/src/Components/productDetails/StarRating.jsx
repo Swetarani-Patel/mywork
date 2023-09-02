@@ -8,7 +8,7 @@ function StarRating({rating}) {
     <Box display={'flex'}>
     {
         starArr.map((el)=>{
-            return <BsStarFill color={rating >= el ? ('yellow'):('gray')}/>
+            return <BsStarFill color={rating >= el ? ('orange'):('gray')}/>
         })
     }
        

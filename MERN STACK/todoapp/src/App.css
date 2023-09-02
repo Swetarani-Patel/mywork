@@ -46,7 +46,7 @@ body {
 
 .task-text {
   flex-grow: 1;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .task-icons {
@@ -62,7 +62,9 @@ body {
 .edit-todo {
   color: #ffffff;
   background-color: transparent;
+  outline: none;
   border: none;
+  font-size: 1.2rem;
   border-bottom: 1px solid #ffffff;
 }
 .tabs {

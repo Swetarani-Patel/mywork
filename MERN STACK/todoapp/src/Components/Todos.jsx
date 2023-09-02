@@ -44,6 +44,7 @@ function Todos() {
     }
     </div>
      {
+       
       getTodos().map((ele)=>{
             return <TodoItems key={ele._id} ele={ele}/>
         })

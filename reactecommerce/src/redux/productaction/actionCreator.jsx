@@ -1,4 +1,4 @@
-import { SET_PRODUCTS, SET_TOTAL_PRICE } from "../actionType"
+import { SET_PRODUCTS } from "../actionType"
 
 export const getProductsData = (data)=>(dispatch)=>{
     dispatch({
@@ -7,9 +7,3 @@ export const getProductsData = (data)=>(dispatch)=>{
     }) 
 }
 
-export const setTotalPrice = (data)=>(dispatch)=>{
-    dispatch({
-        type:SET_TOTAL_PRICE,
-        payload:data,
-    }) 
-}

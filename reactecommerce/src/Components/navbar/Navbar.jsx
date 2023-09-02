@@ -12,9 +12,18 @@ import { BsCart4 } from 'react-icons/bs';
 import {AiOutlineLogin} from 'react-icons/ai';
 import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
+  
+
+  const storedItem = useSelector((store)=>{
+   return store.cart.cart;
+  })
+
+  let cartItem = storedItem.length;
 
   return (
     <Box
@@ -46,13 +55,15 @@ const Navbar = () => {
           </ChakraLink>
         </Flex>
         <Spacer />
+        <Link to='/signup'>
         <Button border="2px" borderColor="gray.400">
          <AiOutlineLogin/>&nbsp; Login
         </Button>{' '}
+        </Link>
         &nbsp;&nbsp;
         <Link to='/cart'>
         <Button border="2px" borderColor="gray.400">
-        <BsCart4/> &nbsp;  Cart
+        <BsCart4/> &nbsp;  Cart ({cartItem})
         </Button>{' '}
         </Link>
         &nbsp;&nbsp;
