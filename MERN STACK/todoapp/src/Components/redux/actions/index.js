@@ -1,11 +1,12 @@
 import axios from 'axios'
 import { ADD_NEW_TODO, GET_ALL_TODOS, TOGGLE_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TAB } from '../type'
-const API_URL = 'http://localhost:8000'
+const API_URL = 'https://todoooo-server.onrender.com'
+
+
 
 export const addNewTodo = (data)=> async (dispatch)=>{
    try{
     const res = await axios.post(`${API_URL}/todos`, {data})
-   //  console.log("res", res);
     dispatch({type: ADD_NEW_TODO, payload: res.data})
    }catch(error){
     console.log('erorr while calling addnewtodo API',error.message )
@@ -34,9 +35,9 @@ export const toggleTodo = (id)=> async (dispatch)=>{
 
 export const updateTodo = (id, data)=> async (dispatch)=>{
    try{
-      console.log('updateTodo action dispatched'); 
+      // console.log('updateTodo action dispatched'); 
       const res = await axios.put(`${API_URL}/todos/${id}`, {data})
-      console.log("res", res);
+      // console.log("res", res);
       dispatch({type: UPDATE_TODO, payload: res.data})
      }catch(error){
       console.log('erorr while calling updateTodo API',error.message )

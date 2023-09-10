@@ -8,7 +8,7 @@ function Todos() {
     const dispatch = useDispatch()
     const storedData = useSelector((state)=>state.todos)
     const currentTab = useSelector((state) => state.currentTab)
-    console.log(storedData);
+    // console.log(storedData);
     useEffect(()=>{
    dispatch(getAllTodos())
     },[])
@@ -37,7 +37,7 @@ function Todos() {
     <Tabs currentTab={currentTab}/>
     {
       storedData.some(todo => {
-        console.log(todo.done, "done")
+        {/* console.log(todo.done, "done") */}
         return todo.done}) ? (
         <button onClick={removeDoneTodos} className='button clear'>Remove Done Todos</button>
       ) : ""
