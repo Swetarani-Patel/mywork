@@ -8,6 +8,8 @@ import ProductDetails from '../productDetails/ProductDetails';
 import Cart from '../cart/Cart';
 import SignUp from '../auth/SignUp';
 import SignIn from '../auth/SignIn';
+import Email from '../resetPassword/Email';
+import Password from '../resetPassword/Password';
 
 
 function AllRoutes() {
@@ -21,6 +23,8 @@ function AllRoutes() {
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/signin' element={<SignIn/>}/>
+        <Route path='/forgotpassword' element={<Email/>}/>
+        <Route path='/resetpassword' element={<Password/>}/>
     </Routes>
   )
 }

@@ -14,6 +14,7 @@ import {
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ function SignUp() {
     password: "",
   });
 
-  const toast = useToast(); // Initialize the Chakra UI toast hook
+  const toast = useToast();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,16 +31,6 @@ function SignUp() {
       ...formData,
       [name]: value,
     });
-  };
-
-  const handleUserData = () => {
-    const userData = JSON.parse(localStorage.getItem("user-data")) || [];
-
-    userData.push(formData);
-
-    localStorage.setItem("user-data", JSON.stringify(userData));
-
-  
   };
 
   const validateForm = () => {
@@ -104,18 +95,31 @@ function SignUp() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (validateForm()) {
-      handleUserData();
-      toast({
-        title: "Sign Up Successful",
-        description: "You have successfully signed up.",
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-        position: "top",
-      });
-      console.log("Form submitted:", formData);
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/signup",
+          formData
+        );
+        toast({
+          title: "Sign Up Successful",
+          description: "You have successfully signed up.",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        });
+        console.log(response);
+      } catch (error) {
+        toast({
+          title: "user already exists",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        });
+      }
     }
   };
 
@@ -146,40 +150,40 @@ function SignUp() {
         <FormControl id="signup">
           <HStack spacing={3} alignItems="center">
             <FaUser size={20} style={{ marginBottom: "8px" }} />
-            <FormLabel fontSize={'15px'}>Name</FormLabel>
+            <FormLabel fontSize={"15px"}>Name</FormLabel>
           </HStack>
           <Input
             type="text"
             placeholder="Your Name"
             name="name"
             onChange={handleChange}
-            fontSize={'15px'}
+            fontSize={"15px"}
           />
         </FormControl>
         <FormControl id="email">
           <HStack spacing={3} alignItems="center">
             <FaEnvelope size={20} style={{ marginBottom: "8px" }} />
-            <FormLabel fontSize={'15px'}>Email Address</FormLabel>
+            <FormLabel fontSize={"15px"}>Email Address</FormLabel>
           </HStack>
           <Input
             type="email"
             placeholder="Your Email"
             name="email"
             onChange={handleChange}
-            fontSize={'15px'}
+            fontSize={"15px"}
           />
         </FormControl>
         <FormControl id="password">
           <HStack spacing={3} alignItems="center">
             <FaLock size={20} style={{ marginBottom: "8px" }} />
-            <FormLabel fontSize={'15px'}>Password</FormLabel>
+            <FormLabel fontSize={"15px"}>Password</FormLabel>
           </HStack>
           <Input
             type="password"
             placeholder="Choose a Password"
             name="password"
             onChange={handleChange}
-            fontSize={'15px'}
+            fontSize={"15px"}
           />
         </FormControl>
         <Button colorScheme="teal" size="lg" mt={4} onClick={handleSubmit}>
