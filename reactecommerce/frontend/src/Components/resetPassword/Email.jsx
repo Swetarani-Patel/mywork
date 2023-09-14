@@ -1,5 +1,5 @@
-import { FaEnvelope, FaLock } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { FaEnvelope } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import {
   Box,
@@ -9,7 +9,6 @@ import {
   Button,
   VStack,
   Text,
-  Divider,
   HStack,
   useToast,
   useDisclosure,
@@ -38,8 +37,6 @@ function Email() {
 
   const handleOTPSubmit = () => {
     const enteredOTP = `${pin.first}${pin.sec}${pin.third}${pin.fourth}`;
-    console.log("enteredOTP", enteredOTP);
-    console.log("otp", otp);
 
     if (Number(enteredOTP) === otp) {
       onClose();
@@ -62,14 +59,15 @@ function Email() {
   };
 
   const handleEmail = async () => {
+    setEmail("");
     try {
       const response = await axios.post(
         "http://localhost:8000/forgotpassword",
         { email }
       );
       setOtp(response.data.OTP);
-      console.log(response);
       onOpen();
+
       toast({
         title: "Email Sent",
         description: `A one-time password (OTP) has been sent to ${email}. Please check your inbox.`,

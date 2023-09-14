@@ -21,6 +21,7 @@ function Password() {
     return password.length >= 6;
   };
   const handlePassword = async () => {
+   
     if (password !== confirmpassword) {
       toast({
         title: "Password Reset Failed",
@@ -55,6 +56,8 @@ function Password() {
           duration: 2000,
           isClosable: true,
         });
+        setPassword("")
+        setConfirmPassword("")
 
         setTimeout(() => {
           navigate("/signin");
@@ -88,6 +91,7 @@ function Password() {
             placeholder="Enter new password"
             name="password"
             fontSize={"15px"}
+            value={password}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
@@ -99,6 +103,7 @@ function Password() {
             placeholder="Confirm new password"
             name="password"
             fontSize={"15px"}
+            value={confirmpassword}
             onChange={(e) => {
               setConfirmPassword(e.target.value);
             }}

@@ -1,7 +1,20 @@
-import React from 'react';
-import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Button } from "@chakra-ui/react";
+import React from "react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+} from "@chakra-ui/react";
 
-function CustomModal({ handleRemoveItem, isConfirmationModalOpen, setIsConfirmationModalOpen }) {
+function CustomModal({
+  handleRemoveItem,
+  isConfirmationModalOpen,
+  setIsConfirmationModalOpen,
+}) {
   return (
     <Modal
       isOpen={isConfirmationModalOpen}
@@ -11,9 +24,14 @@ function CustomModal({ handleRemoveItem, isConfirmationModalOpen, setIsConfirmat
       <ModalContent>
         <ModalHeader>Confirm Removal</ModalHeader>
         <ModalCloseButton />
-        <ModalBody>Are you sure you want to remove this item from the cart?</ModalBody>
+        <ModalBody>
+          Are you sure you want to remove this item from the cart?
+        </ModalBody>
         <ModalFooter>
-          <Button colorScheme="red" onClick={handleRemoveItem}>YES</Button> &nbsp;&nbsp;
+          <Button colorScheme="red" onClick={handleRemoveItem}>
+            YES
+          </Button>{" "}
+          &nbsp;&nbsp;
           <Button onClick={() => setIsConfirmationModalOpen(false)}>NO</Button>
         </ModalFooter>
       </ModalContent>

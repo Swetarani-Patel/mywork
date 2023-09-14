@@ -97,7 +97,7 @@ app.post("/confirmpassword", async (req, res) => {
 });
 
 app.post("/checkout", (req, res) => {
-  const { token } = req.body;
+  const { token, address } = req.body;
   jwt.verify(token, JWT_SECRET_KEY, async (err, decoded) => {
     //decoded = {userId: authenticatedUser._id}
     if (err) {
@@ -112,19 +112,32 @@ app.post("/checkout", (req, res) => {
       });
       const orderNum = Math.floor(100000 + Math.random() * 999999);
       const html = `
-     <html>
-     <head>
-         <title>Order Confirmation</title>
-     </head>
-     <body>
-         <div style="background-color: #f2f2f2; padding: 20px;">
-             <h2>Order Confirmation</h2>
-             <p>Thank you for your order! Your order number is: <strong>${orderNum}</strong></p>
-             <p>We will process your order shortly. You will receive an email with the shipping details once your order is shipped.</p>
-             <p>If you have any questions or concerns, please contact our customer support.</p>
-         </div>
-     </body>
-     </html>
+      <html>
+      <head>
+          <title>Order Confirmation</title>
+      </head>
+      <body>
+          <div style="background-color: #f2f2f2; padding: 20px;">
+              <h2>Order Confirmation</h2>
+              <p>Thank you for your order, <strong>${address.name}</strong>!</p>
+              <p>Your order number is: <strong>${orderNum}</strong></p>
+              <p>Shipping Address:</p>
+              <p>
+                  <strong>Name:</strong> ${address.name}<br>
+                  <strong>Street:</strong> ${address.street}<br>
+                  <strong>City:</strong> ${address.city}<br>
+                  <strong>State:</strong> ${address.state}<br>
+                  <strong>Zip Code:</strong> ${address.zip}<br>
+                  <strong>Mobile Number:</strong> ${address.mobile}
+              </p>
+              <p>We will process your order shortly. You will receive an email with the shipping details once your order is shipped.</p>
+              <p>If you have any questions or concerns, please contact our customer support.</p>
+              <br>
+              <p>With Regards,<br>The Glamio Team</p>
+          </div>
+      </body>
+      </html>
+      
    `;
 
       const mailOptions = {

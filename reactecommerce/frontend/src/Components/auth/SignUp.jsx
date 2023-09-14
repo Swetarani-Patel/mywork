@@ -96,6 +96,7 @@ function SignUp() {
   };
 
   const handleSubmit = async () => {
+   
     if (validateForm()) {
       try {
         const response = await axios.post(
@@ -111,6 +112,11 @@ function SignUp() {
           position: "top",
         });
         console.log(response);
+        setFormData({
+          name: "",
+          email: "",
+          password: "",
+        });
       } catch (error) {
         toast({
           title: "user already exists",
@@ -158,6 +164,7 @@ function SignUp() {
             name="name"
             onChange={handleChange}
             fontSize={"15px"}
+            value={formData.name}
           />
         </FormControl>
         <FormControl id="email">
@@ -171,6 +178,7 @@ function SignUp() {
             name="email"
             onChange={handleChange}
             fontSize={"15px"}
+            value={formData.email}
           />
         </FormControl>
         <FormControl id="password">
@@ -184,6 +192,7 @@ function SignUp() {
             name="password"
             onChange={handleChange}
             fontSize={"15px"}
+            value={formData.password}
           />
         </FormControl>
         <Button colorScheme="teal" size="lg" mt={4} onClick={handleSubmit}>

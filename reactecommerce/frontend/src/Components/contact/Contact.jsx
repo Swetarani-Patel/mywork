@@ -1,11 +1,24 @@
-import React from 'react';
-import { Box, Heading, Text, VStack, FormControl, FormLabel, Input, Textarea, Button } from '@chakra-ui/react';
+import React from "react";
+import {
+  Box,
+  Heading,
+  Text,
+  VStack,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  Button,
+} from "@chakra-ui/react";
 
 function Contact() {
   return (
     <Box mt={4}>
       <Heading>Contact Us</Heading>
-      <Text>If you have any questions, suggestions, or feedback, we'd love to hear from you!</Text>
+      <Text>
+        If you have any questions, suggestions, or feedback, we'd love to hear
+        from you!
+      </Text>
 
       <VStack spacing={4} mt={4}>
         <Box>
@@ -16,8 +29,10 @@ function Contact() {
         </Box>
 
         <Box>
-          <Heading size="md" mb={4}>Send Us a Message</Heading>
-          <form >
+          <Heading size="md" mb={4}>
+            Send Us a Message
+          </Heading>
+          <form>
             <FormControl id="name" isRequired>
               <FormLabel>Name</FormLabel>
               <Input type="text" name="name" />
@@ -33,7 +48,7 @@ function Contact() {
               <Textarea name="message" rows="4" />
             </FormControl>
 
-            <Button type="submit" mt={4} mb={4} colorScheme='green'>
+            <Button type="submit" mt={4} mb={4} colorScheme="green">
               Send
             </Button>
           </form>

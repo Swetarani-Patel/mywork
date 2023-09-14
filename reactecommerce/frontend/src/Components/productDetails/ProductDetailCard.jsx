@@ -1,19 +1,26 @@
 import React from "react";
-import {BsFillBagHeartFill, BsFillHeartFill} from "react-icons/bs";
-import {Box, ButtonGroup,Flex,Image,Text,Button,HStack, useToast,} from "@chakra-ui/react";
+import { BsFillBagHeartFill, BsFillHeartFill } from "react-icons/bs";
+import {
+  Box,
+  ButtonGroup,
+  Flex,
+  Image,
+  Text,
+  Button,
+  HStack,
+  useToast,
+} from "@chakra-ui/react";
 import StarRating from "./StarRating";
 import { addToCart } from "../localStorage/LocalStorage";
 import { useDispatch } from "react-redux";
 
 function ProductDetailCard({ single, selectedSize, setSelectedSize }) {
-const dispatch = useDispatch()
-const toast = useToast()
+  const dispatch = useDispatch();
+  const toast = useToast();
   const handleSizeClick = (size) => {
     setSelectedSize(size);
-  }
-    
+  };
 
-  
   return (
     <Box mt="20px" p="30px">
       <Flex>
@@ -28,8 +35,8 @@ const toast = useToast()
             {single.title}
           </Text>
           <Flex>
-          <>
-           <StarRating rating={single.rating.rate}/>
+            <>
+              <StarRating rating={single.rating.rate} />
             </>
             &nbsp;&nbsp;&nbsp;
             <Text mb={"1rem"}>{single.rating.count} Reviews</Text>
@@ -122,11 +129,12 @@ const toast = useToast()
           <HStack mt="1rem">
             {/* <Link to='/cart'> */}
             <Button
-              onClick={()=>{addToCart(toast, single, dispatch, selectedSize)}}
+              onClick={() => {
+                addToCart(toast, single, dispatch, selectedSize);
+              }}
               variant={"outline"}
               boxShadow={"lg"}
               border={"1px solid"}
-              
             >
               {" "}
               <BsFillBagHeartFill /> &nbsp; Add To Bag
@@ -148,4 +156,3 @@ const toast = useToast()
 }
 
 export default ProductDetailCard;
-

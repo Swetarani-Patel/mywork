@@ -22,7 +22,7 @@ function SignIn() {
   });
 
   const toast = useToast();
-  const navigate = useNavigate() 
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -31,11 +31,13 @@ function SignIn() {
     });
   };
 
-  const handleSignIn = async() => {
-
-    try{
-      const response = await axios.post('http://localhost:8000/login', formData)
-        toast({
+  const handleSignIn = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/login",
+        formData
+      );
+      toast({
         title: "Sign In Successful",
         description: "You have successfully signed in.",
         status: "success",
@@ -44,12 +46,12 @@ function SignIn() {
         position: "top",
       });
 
+      setFormData({ email: "", password: "" });
+      localStorage.setItem("access-token", response.data.token);
 
-    localStorage.setItem('access-token', response.data.token)
-  
-   navigate('/')
-    }catch(error){
-      console.log(error)
+      navigate("/");
+    } catch (error) {
+      console.log(error);
       toast({
         title: "Sign In Failed",
         description: "Invalid email or password. Please try again.",
@@ -59,13 +61,11 @@ function SignIn() {
         position: "top",
       });
     }
-
-    
   };
 
-  const handleforgotPassword = ()=>{
-    navigate('/forgotpassword')
-  }
+  const handleforgotPassword = () => {
+    navigate("/forgotpassword");
+  };
 
   return (
     <Box
@@ -84,7 +84,7 @@ function SignIn() {
         <Text fontSize="xl" fontWeight="bold">
           Sign In
         </Text>
-        <Text color={'gray.500'}>
+        <Text color={"gray.500"}>
           Don't have an account?{" "}
           <Link style={{ color: "teal", fontWeight: "bold" }} to="/signup">
             Sign Up
@@ -101,6 +101,7 @@ function SignIn() {
             name="email"
             onChange={handleChange}
             fontSize={"15px"}
+            value={formData.email}
           />
         </FormControl>
         <FormControl id="password">
@@ -114,9 +115,16 @@ function SignIn() {
             name="password"
             onChange={handleChange}
             fontSize={"15px"}
+            value={formData.password}
           />
         </FormControl>
-        <Text align={"right"} fontSize={"sm"} cursor={'pointer'} color={'gray.600'} onClick={handleforgotPassword}>
+        <Text
+          align={"right"}
+          fontSize={"sm"}
+          cursor={"pointer"}
+          color={"gray.600"}
+          onClick={handleforgotPassword}
+        >
           Forgot Password?
         </Text>
         <Button colorScheme="teal" size="lg" mt={1} onClick={handleSignIn}>

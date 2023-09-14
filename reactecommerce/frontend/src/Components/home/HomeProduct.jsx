@@ -6,7 +6,7 @@ import HomeProdList from "./HomeProdList";
 import HomeSkeleton from "./HomeSkeleton";
 
 function HomeProduct() {
-  const [url, setUrl] = useState("https://fakestoreapi.com/products");
+  const url = "https://fakestoreapi.com/products";
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const storeData = useSelector((store) => {
@@ -18,8 +18,8 @@ function HomeProduct() {
     getData(dispatch, url)
       .then(() => setLoading(false))
       .catch(() => setLoading(false));
-  }, [url]);
-  // console.log(storeData);
+  }, [dispatch,url]);
+ 
 
   return (
     <Box mt={"3rem"}>

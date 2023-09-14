@@ -10,50 +10,68 @@ function HomeProdList({ ele }) {
   return (
     <Box boxShadow="dark-lg" p="2" rounded="md" bg="white">
       <Box>
-        <Image src={image} alt="" w="100%" h="200px" _hover={{
-          transform: "scale(1.02)", 
-          transition: "transform 0.3s ease-in-out", 
-        }}/>
+        <Image
+          src={image}
+          alt=""
+          w="100%"
+          h="200px"
+          _hover={{
+            transform: "scale(1.02)",
+            transition: "transform 0.3s ease-in-out",
+          }}
+        />
       </Box>
       <Box p="10px">
-      <Flex>
-      <Box noOfLines={1}>
-        <Text
-         
-          textOverflow="ellipsis"
-          fontSize="16px"
-          fontWeight="semibold"
-          mt="10px"
-          align={'left'}
-        >
-          {title}
-        </Text>
-        
-        </Box>
-        
+        <Flex>
+          <Box noOfLines={1}>
+            <Text
+              textOverflow="ellipsis"
+              fontSize="16px"
+              fontWeight="semibold"
+              mt="10px"
+              align={"left"}
+            >
+              {title}
+            </Text>
+          </Box>
         </Flex>
-        <Flex mt={'5px'} justifyContent={'space-between'}>
-        <Text
-          fontSize="15px"
-          fontWeight="bold"
-          mt="5px"
-          bg={"black"}
-          color={'white'}
-          w={"25%"}
-          display="inline-block"
-        >
-          {rating.rate} &nbsp;
-          <StarIcon mb={'0.3rem'} style={{ fontSize: '13px' }} color={'white'} bg={'black'}/>
-
-        </Text> 
-        <Text fontSize="15px" fontWeight="bold" mt="5px" ml='1rem'>
-          ${price}
-        </Text>
+        <Flex mt={"5px"} justifyContent={"space-between"}>
+          <Text
+            fontSize="15px"
+            fontWeight="bold"
+            mt="5px"
+            bg={"black"}
+            color={"white"}
+            w={"25%"}
+            display="inline-block"
+          >
+            {rating.rate} &nbsp;
+            <StarIcon
+              mb={"0.3rem"}
+              style={{ fontSize: "13px" }}
+              color={"white"}
+              bg={"black"}
+            />
+          </Text>
+          <Text fontSize="15px" fontWeight="bold" mt="5px" ml="1rem">
+            ${price}
+          </Text>
         </Flex>
         <Link to={`/productdetails/${id}`}>
-           <Button mt="1rem" size="sm" variant={'outline'}  w={'100%'} boxShadow={'2xl'} border={'1px solid'}>
-           Buy Now
-          </Button> 
+          <Button
+            mt="1rem"
+            size="sm"
+            variant={"outline"}
+            w={"100%"}
+            boxShadow={"2xl"}
+            border={"1px solid"}
+            _hover={{
+              bg: "gray.200",
+              transform: "scale(1.03)",
+            }}
+          >
+            Buy Now
+          </Button>
         </Link>
       </Box>
     </Box>

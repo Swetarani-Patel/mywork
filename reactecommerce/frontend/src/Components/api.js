@@ -22,7 +22,7 @@ export const fetchProductDetails = async (setSingle, setLoading, id) => {
       setLoading(false);
     })
     .catch((error) => {
-      console.log("error");
+      console.log(error);
     });
 };
 

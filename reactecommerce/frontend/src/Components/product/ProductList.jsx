@@ -7,16 +7,22 @@ import { addToCart } from "../localStorage/LocalStorage";
 import { useDispatch } from "react-redux";
 
 function ProductList({ ele }) {
-  const { image, title, price, rating, id } = ele;
+  const { image, title, price, rating } = ele;
   const dispatch = useDispatch();
   const toast = useToast();
   return (
     <Box boxShadow="dark-lg" p="2" rounded="md" bg="white">
       <Box>
-        <Image src={image} alt="" w="100%" h="300px"  _hover={{
-          transform: "scale(1.03)", 
-          transition: "transform 0.3s ease-in-out",
-        }}/>
+        <Image
+          src={image}
+          alt=""
+          w="100%"
+          h="300px"
+          _hover={{
+            transform: "scale(1.03)",
+            transition: "transform 0.3s ease-in-out",
+          }}
+        />
       </Box>
       <Box p="10px">
         <Flex>
@@ -60,7 +66,7 @@ function ProductList({ ele }) {
           >
             {rating.count} reviews
           </Text>
-          <Text fontSize="15px" fontWeight="bold" mt="5px" ml="1rem">
+          <Text fontSize="15px" fontWeight="bold" mt="5px" ml="6rem">
             ${price}
           </Text>
         </Flex>
@@ -75,6 +81,11 @@ function ProductList({ ele }) {
           w={"100%"}
           boxShadow={"2xl"}
           border={"1px solid"}
+          transition="transform 0.2s"
+          _hover={{
+            bg: "gray.200",
+            transform: "scale(1.03)",
+          }}
         >
           <BsBag /> &nbsp;Add To Bag
         </Button>
