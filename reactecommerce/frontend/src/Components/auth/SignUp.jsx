@@ -140,7 +140,7 @@ function SignUp() {
         <Text fontSize="xl" fontWeight="bold">
           Create an Account
         </Text>
-        <Text>
+        <Text color={'gray.500'}>
           Already have an account?{" "}
           <Link style={{ color: "teal", fontWeight: "bold" }} to="/signin">
             Sign In

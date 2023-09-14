@@ -1,9 +1,11 @@
 import React from 'react';
-import { Box, Image, Text } from '@chakra-ui/react';
+import { Box, Button, Image, Text } from '@chakra-ui/react';
 import HomeProduct from './HomeProduct';
+import { useNavigate } from 'react-router-dom';
 
 
 function Home() {
+  const navigate = useNavigate()
   return (
     <Box>
     <Box position="relative">
@@ -27,8 +29,13 @@ function Home() {
         <Text fontSize="lg" color="black" mb={8}>
           Discover the Latest Trends in Fashion
         </Text>
+        <Button border={'1px solid black'} size="lg" bg={'rgb(249, 182, 63)'} _hover={{ bg: 'black', color:'rgb(249, 182, 63)'}} onClick={()=>{navigate('/product')}}>
+            Explore Now
+          </Button>
       </Box>
+     
     </Box>
+    
  <HomeProduct/>
     </Box>
   );

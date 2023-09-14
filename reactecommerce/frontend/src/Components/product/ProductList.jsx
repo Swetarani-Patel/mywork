@@ -4,25 +4,19 @@ import { BsBag } from "react-icons/bs";
 import { Flex } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import { addToCart } from "../localStorage/LocalStorage";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getCartItem } from "../../redux/cartAction/cartActionCreator";
-// import { useDispatch, useSelector } from "react-redux";
-// import { setTotalPrice } from "../../redux/actionCreator";
 
 function ProductList({ ele }) {
   const { image, title, price, rating, id } = ele;
-  // const {totalprice}  = useSelector((state)=>{
-  //   return state;
-  // })
-  // const dispatch  =  useDispatch();
-
   const dispatch = useDispatch();
-  const toast = useToast()
+  const toast = useToast();
   return (
     <Box boxShadow="dark-lg" p="2" rounded="md" bg="white">
       <Box>
-        <Image src={image} alt="" w="100%" h="300px" />
+        <Image src={image} alt="" w="100%" h="300px"  _hover={{
+          transform: "scale(1.03)", 
+          transition: "transform 0.3s ease-in-out",
+        }}/>
       </Box>
       <Box p="10px">
         <Flex>
@@ -70,27 +64,23 @@ function ProductList({ ele }) {
             ${price}
           </Text>
         </Flex>
-        {/* <Link to={"/cart"}> */}
 
-          <Button
-           onClick={()=>{addToCart(toast,ele, dispatch)}}
-            mt="1rem"
-            size="md"
-            variant={"outline"}
-            w={"100%"}
-            boxShadow={"2xl"}
-            border={"1px solid"}
-          >
-            <BsBag /> &nbsp;Add To Bag
-          </Button>
-        {/* </Link> */}
+        <Button
+          onClick={() => {
+            addToCart(toast, ele, dispatch);
+          }}
+          mt="1rem"
+          size="md"
+          variant={"outline"}
+          w={"100%"}
+          boxShadow={"2xl"}
+          border={"1px solid"}
+        >
+          <BsBag /> &nbsp;Add To Bag
+        </Button>
       </Box>
     </Box>
   );
 }
 
 export default ProductList;
-
-
-
-

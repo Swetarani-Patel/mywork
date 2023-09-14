@@ -10,14 +10,14 @@ function Contact() {
       <VStack spacing={4} mt={4}>
         <Box>
           <Heading size="md">Contact Information</Heading>
-          <Text>Email: contact@yourstore.com</Text>
+          <Text>Email: contact@glamio.com</Text>
           <Text>Phone: +123 456 7890</Text>
-          <Text>Address: 123 Main Street, City, Country</Text>
+          <Text>Address: New Colony, Sundargarh, India</Text>
         </Box>
 
         <Box>
           <Heading size="md" mb={4}>Send Us a Message</Heading>
-          <form>
+          <form >
             <FormControl id="name" isRequired>
               <FormLabel>Name</FormLabel>
               <Input type="text" name="name" />

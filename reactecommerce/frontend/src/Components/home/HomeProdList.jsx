@@ -10,7 +10,10 @@ function HomeProdList({ ele }) {
   return (
     <Box boxShadow="dark-lg" p="2" rounded="md" bg="white">
       <Box>
-        <Image src={image} alt="" w="100%" h="200px" />
+        <Image src={image} alt="" w="100%" h="200px" _hover={{
+          transform: "scale(1.02)", 
+          transition: "transform 0.3s ease-in-out", 
+        }}/>
       </Box>
       <Box p="10px">
       <Flex>

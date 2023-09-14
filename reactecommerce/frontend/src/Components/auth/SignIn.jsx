@@ -32,13 +32,6 @@ function SignIn() {
   };
 
   const handleSignIn = async() => {
-    // const userData = JSON.parse(localStorage.getItem("user-data")) || [];
-    // const { email, password } = formData;
-
-    // const user = userData.find(
-    //   (user) => user.email === email && user.password === password
-    // );
-
 
     try{
       const response = await axios.post('http://localhost:8000/login', formData)
@@ -50,11 +43,11 @@ function SignIn() {
         isClosable: true,
         position: "top",
       });
-      console.log(response)
+
 
     localStorage.setItem('access-token', response.data.token)
   
-
+   navigate('/')
     }catch(error){
       console.log(error)
       toast({
@@ -91,7 +84,7 @@ function SignIn() {
         <Text fontSize="xl" fontWeight="bold">
           Sign In
         </Text>
-        <Text>
+        <Text color={'gray.500'}>
           Don't have an account?{" "}
           <Link style={{ color: "teal", fontWeight: "bold" }} to="/signup">
             Sign Up
@@ -123,10 +116,10 @@ function SignIn() {
             fontSize={"15px"}
           />
         </FormControl>
-        <Text align={"right"} fontSize={"sm"} cursor={'pointer'} onClick={handleforgotPassword}>
+        <Text align={"right"} fontSize={"sm"} cursor={'pointer'} color={'gray.600'} onClick={handleforgotPassword}>
           Forgot Password?
         </Text>
-        <Button colorScheme="teal" size="lg" mt={4} onClick={handleSignIn}>
+        <Button colorScheme="teal" size="lg" mt={1} onClick={handleSignIn}>
           Sign In
         </Button>
         <Divider />

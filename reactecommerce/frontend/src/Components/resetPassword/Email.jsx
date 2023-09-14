@@ -38,16 +38,17 @@ function Email() {
 
   const handleOTPSubmit = () => {
     const enteredOTP = `${pin.first}${pin.sec}${pin.third}${pin.fourth}`;
-     console.log("enteredOTP",enteredOTP)
-     console.log("otp",otp)
-    
+    console.log("enteredOTP", enteredOTP);
+    console.log("otp", otp);
+
     if (Number(enteredOTP) === otp) {
       onClose();
-      navigate("/resetpassword")
+      navigate("/resetpassword");
       localStorage.setItem("forget-email", email);
     } else {
       toast({
-        description: "Invalid OTP, please try again.",
+        title: "Password Reset Failed",
+        description: "Please check your email and try again.",
         status: "error",
         position: "top",
         duration: 2000,
@@ -65,14 +66,13 @@ function Email() {
       const response = await axios.post(
         "http://localhost:8000/forgotpassword",
         { email }
-        
       );
-      setOtp(response.data.OTP)
+      setOtp(response.data.OTP);
       console.log(response);
       onOpen();
       toast({
-        title: "OTP sent successfully",
-        description: `OTP has been sent to ${email}`,
+        title: "Email Sent",
+        description: `A one-time password (OTP) has been sent to ${email}. Please check your inbox.`,
         status: "success",
         duration: 3000,
         isClosable: true,
@@ -80,8 +80,8 @@ function Email() {
       });
     } catch (error) {
       toast({
-        title: "OTP sent Failed",
-        description: "User doesn't exist. Please sign up.",
+        title: "Password Reset Failed",
+        description: "Email not found. Please verify your email or sign up.",
         status: "error",
         duration: 3000,
         isClosable: true,
@@ -105,7 +105,7 @@ function Email() {
     >
       <VStack spacing={4} align="stretch">
         <Text fontSize="xl" fontWeight="bold">
-          Reset Password
+          Password Reset
         </Text>
         <Text color={"gray.500"}>Enter your email to reset password</Text>
         <FormControl id="email">
