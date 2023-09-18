@@ -6,19 +6,37 @@ import {
   Link as ChakraLink,
   Button,
   IconButton,
+  useDisclosure,
+  Image,
+  Text,
 } from "@chakra-ui/react";
 import { BsCart4 } from "react-icons/bs";
 import { AiOutlineLogin } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/authaction/authaction";
 
 const Navbar = () => {
-  const storedItem = useSelector((store) => {
-    return store.cart.cart;
-  });
-
-  let cartItem = storedItem.length;
-
+  const accessToken = localStorage.getItem("access-token");
+  const profile = localStorage.getItem("user-profile");
+  const state = useSelector((state) => state);
+  let cartItem = state.cart.cart.length;
+  console.log(state)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  
+ 
+  function handleLogout() {
+  
+  if(localStorage.getItem("access-token")){
+    dispatch(logout());
+  }else{
+  
+    navigate("/signup")
+  }
+  
+    
+  }
   return (
     <Box
       bg={"gray.200"}
@@ -49,12 +67,21 @@ const Navbar = () => {
           </ChakraLink>
         </Flex>
         <Spacer />
-        <Link to="/signup">
-          <Button border="2px" borderColor="gray.400">
+        {accessToken && (
+          <Image
+            src={
+              profile
+                ? state.auth.user.photoURL
+                : "https://i.pinimg.com/originals/7d/34/d9/7d34d9d53640af5cfd2614c57dfa7f13.png"
+            }
+           borderRadius={'5rem'} w={'2.5rem'} mr={'1rem'}/>
+        )}
+        <Text>
+          <Button border="2px" borderColor="gray.400" onClick={handleLogout}>
             <AiOutlineLogin />
-            &nbsp; Login
+            &nbsp;{accessToken ? "Logout" : "Login"}
           </Button>{" "}
-        </Link>
+        </Text>
         &nbsp;&nbsp;
         <Link to="/cart">
           <Button border="2px" borderColor="gray.400">

@@ -13,8 +13,10 @@ import {
 } from "@chakra-ui/react";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../redux/authaction/authaction";
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -32,6 +34,13 @@ function SignUp() {
       [name]: value,
     });
   };
+  const navigate =  useNavigate()
+  const state = useSelector((state) => state);
+  const accesToken = localStorage.getItem("access-token");
+  console.log("render")
+  if (accesToken) {
+    navigate("/");
+  }
 
   const validateForm = () => {
     const newErrors = {};
@@ -96,7 +105,6 @@ function SignUp() {
   };
 
   const handleSubmit = async () => {
-   
     if (validateForm()) {
       try {
         const response = await axios.post(
@@ -128,6 +136,10 @@ function SignUp() {
       }
     }
   };
+  const dispatch = useDispatch();
+  function handelGoogleAuth() {
+    dispatch(login());
+  }
 
   return (
     <Box
@@ -146,7 +158,7 @@ function SignUp() {
         <Text fontSize="xl" fontWeight="bold">
           Create an Account
         </Text>
-        <Text color={'gray.500'}>
+        <Text color={"gray.500"}>
           Already have an account?{" "}
           <Link style={{ color: "teal", fontWeight: "bold" }} to="/signin">
             Sign In
@@ -199,7 +211,7 @@ function SignUp() {
           Sign Up
         </Button>
         <Divider />
-        <Button size="lg">
+        <Button size="lg" onClick={handelGoogleAuth}>
           Continue with &nbsp;
           <FcGoogle size={30} />
         </Button>

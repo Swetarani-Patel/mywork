@@ -14,13 +14,14 @@ import {
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function SignIn() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-
+  const state = useSelector((state) => state);
   const toast = useToast();
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -30,6 +31,7 @@ function SignIn() {
       [name]: value,
     });
   };
+ 
 
   const handleSignIn = async () => {
     try {
@@ -62,7 +64,7 @@ function SignIn() {
       });
     }
   };
-
+  
   const handleforgotPassword = () => {
     navigate("/forgotpassword");
   };
