@@ -6,6 +6,9 @@ This is a React application that allows users to manage tasks and switch between
 
 To get started with the application, follow these steps:
 
+![Light Theme](![Alt text](<Screenshot 2023-10-19 at 9.10.57 PM-1.png>))
+![Dark Theme](![Alt text](<Screenshot 2023-10-19 at 9.11.34 PM.png>))
+
 ## Using the App
 
 Theme Switcher
