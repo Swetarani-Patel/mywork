@@ -1,0 +1,42 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.navbar.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.theme-switcher {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #007bff;
+}
+
+.navbar.dark .theme-switcher {
+  color: #ffd700;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+theme-switcher {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #007bff;
+}
+
+.navbar.dark .theme-switcher {
+  color: #ffd700;
+}
